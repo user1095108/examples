@@ -11,14 +11,40 @@
     </style>
   </head>
   <body>
-    <div id="dosbox"></div>
+    <div id="dosbox1"></div>
+    vector.exe
     <br/>
     <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
     <script type="text/javascript">
       var dosbox = new Dosbox({
-        id: "dosbox",
+        id: "dosbox1",
         onload: function (dosbox) {
-          dosbox.run("https://github.com/user1095108/examples/blob/master/vxl.zip?raw=true", "./vector.exe");
+          dosbox.run("https://raw.githubusercontent.com/user1095108/examples/master/vxl.zip", "./vector.exe");
+        }
+      });
+      dosbox.run("https://raw.githubusercontent.com/user1095108/examples/master/vxl.zip", "./vector.exe");
+    </script>
+    <div id="dosbox2"></div>
+    matrix.exe
+    <br/>
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+    <script type="text/javascript">
+      var dosbox = new Dosbox({
+        id: "dosbox2",
+        onload: function (dosbox) {
+          dosbox.run("https://raw.githubusercontent.com/user1095108/examples/master/vxl.zip", "./matrix.exe");
+        }
+      });
+    </script>
+    <div id="dosbox3"></div>
+    quat.exe
+    <br/>
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+    <script type="text/javascript">
+      var dosbox = new Dosbox({
+        id: "dosbox3",
+        onload: function (dosbox) {
+          dosbox.run("https://raw.githubusercontent.com/user1095108/examples/master/vxl.zip", "./quat.exe");
         }
       });
     </script>
