@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>js-dos api</title>
+    <style type="text/css">
+      .dosbox-container { width: 640px; height: 400px; }
+      .dosbox-container > .dosbox-overlay { background: url(https://upload.wikimedia.org/wikipedia/commons/d/dd/DOSBox_icon.png); }
+      .dosbox-start { font-size: 35px !important; }
+    </style>
+  </head>
+  <body>
+    <div id="dosbox1"></div>
+    testll.exe
+    <br/>
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+    <script type="text/javascript">
+      var dosbox = new Dosbox({
+        id: "dosbox1",
+        onload: function (dosbox) {
+          dosbox.run("https://raw.githubusercontent.com/user1095108/examples/master/vxl.zip", "./testll.exe");
+        }
+      });
+      dosbox.run("https://raw.githubusercontent.com/user1095108/examples/master/vxl.zip", "./testll.exe");
+    </script>
+  </body>
+</html>
