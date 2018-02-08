@@ -1,0 +1,25 @@
+import feature ;
+
+project testlualite
+  : requirements
+    <include>../
+    <include>../lua
+    <include>../lualite
+    <define>LUA_32BITS
+    <toolset>emscripten:<linkflags>"--memory-init-file 0"
+    <variant>release:<define>NDEBUG
+    <variant>release:<cflags>"-O3"
+    <variant>release:<cxxflags>"-std=c++14 -fno-rtti -Wall -Wextra -s"
+    <variant>debug:<cflags>""
+    <variant>debug:<cxxflags>"-std=c++14 -fno-rtti -Wall -Wextra -g"
+    <threading>multi
+  : default-build debug
+  : build-dir .build
+  ;
+
+exe testlualite
+  : ../lualite/testlua.cpp
+    one.c
+  : <inlining>on
+    <link>static
+  ;
