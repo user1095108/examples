@@ -37,7 +37,7 @@ int main()
   }
 */
 
-  for (index_t i{size - 1}, end(size - n - 1); i != end; --i)
+  for (index_t i{size - n}, end(size); i != end; ++i)
   {
     std::cout << mystery(i, n) << std::endl;
   }
