@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-unsigned pascal1(unsigned n, unsigned k)
+unsigned binom1(unsigned n, unsigned k)
 {
   if (!k || (n == k))
   {
@@ -10,8 +10,20 @@ unsigned pascal1(unsigned n, unsigned k)
   }
   else
   {
-    return pascal1(n - 1, k - 1) + pascal1(n - 1, k);
+    return binom1(n - 1, k - 1) + binom1(n - 1, k);
   }
+}
+
+unsigned binom2(unsigned n, unsigned k)
+{
+  unsigned r{1};
+
+  for (unsigned i{1}; i != k + 1; ++i)
+  {
+    r = (r * (n - i + 1)) / i;
+  }
+
+  return r;
 }
 
 int main()
@@ -20,7 +32,7 @@ int main()
   {
     for (unsigned j{}; j != i + 1; ++j)
     {
-      std::cout << pascal1(i, j) << " ";
+      std::cout << binom2(i, j) << " ";
     }
 
     std::cout << std::endl;
