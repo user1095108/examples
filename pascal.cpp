@@ -16,7 +16,7 @@ unsigned pascal1(unsigned i, unsigned N)
 
 int main()
 {
-  for (unsigned i{}; i != 10; ++i)
+  for (unsigned i{1}; i != 11; ++i)
   {
     for (unsigned j{}; j != i; ++j)
     {
