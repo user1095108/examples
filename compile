@@ -1,1 +1,1 @@
-em++ -std=c++17 -s WASM=0 --memory-init-file 0 -Oz ../qchart/fxl/fxl.cpp -o fxl.js
+em++ -std=c++17 -s WASM=0 --memory-init-file 0 -O3 ../qchart/fxl/fxl.cpp -o fxl.js
