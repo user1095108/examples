@@ -6,10 +6,10 @@ project testlualite
     <include>../lua
     <include>../lualite
     <define>LUA_32BITS
-    <toolset>emscripten:<linkflags>"--memory-init-file 0"
+    <toolset>emscripten:<linkflags>"-s WASM=0 --memory-init-file 0"
     <variant>release:<define>NDEBUG
-    <variant>release:<cflags>"-O3 -s"
-    <variant>release:<cxxflags>"-std=c++14 -fno-rtti -Wall -Wextra"
+    <variant>release:<cflags>"-O3"
+    <variant>release:<cxxflags>"-std=c++14 -fno-rtti -Wall -Wextra -fno-stack-protector -no-pie -fno-plt"
     <variant>debug:<cflags>""
     <variant>debug:<cxxflags>"-std=c++14 -fno-rtti -Wall -Wextra -g"
     <threading>single
@@ -19,7 +19,7 @@ project testlualite
 
 exe testlualite
   : ../lualite/testlua.cpp
-    one.c
+    [ glob ../lua/*.c : ../lua/lua.c ]
   : <inlining>on
     <link>static
   ;
