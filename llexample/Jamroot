@@ -6,6 +6,7 @@ project testlualite
     <include>../lua
     <include>../lualite
     <define>LUA_32BITS
+    <define>MAKE_LIB
     <toolset>emscripten:<linkflags>"-s WASM=0 --memory-init-file 0"
     <variant>release:<define>NDEBUG
     <variant>release:<cflags>"-O3"
@@ -19,7 +20,8 @@ project testlualite
 
 exe testlualite
   : ../lualite/testlua.cpp
-    [ glob ../lua/*.c : ../lua/lua.c ]
+#    [ glob ../lua/*.c : ../lua/lua.c ]
+    ../lua/onelua.c
   : <inlining>on
     <link>static
   ;
