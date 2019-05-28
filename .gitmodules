@@ -4,3 +4,9 @@
 [submodule "lualite"]
 	path = lualite
 	url = https://github.com/user1095108/lualite
+[submodule "sqlite-amalgamation"]
+	path = sqlite-amalgamation
+	url = https://github.com/azadkuh/sqlite-amalgamation.git
+[submodule "sqliteutils"]
+	path = sqliteutils
+	url = https://github.com/user1095108/sqliteutils.git

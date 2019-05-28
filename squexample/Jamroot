@@ -1,0 +1,31 @@
+import feature ;
+
+project testsqu
+  : requirements
+    <include>../
+    <include>../sqlite-amalgamation
+    <include>../sqliteutils
+    <define>SQLITE_THREADSAFE=0
+    <define>SQLITE_DEFAULT_MEMSTATUS=0
+    <define>SQLITE_OMIT_DEPRECATED
+    <define>SQLITE_OMIT_DECLTYPE
+    <define>SQLITE_OMIT_PROGRESS_CALLBACK
+    <define>SQLITE_USE_ALLOCA
+    <define>SQLITE_OMIT_LOAD_EXTENSION
+    <toolset>emscripten:<linkflags>"-s WASM=0 --memory-init-file 0"
+    <variant>release:<define>NDEBUG
+    <variant>release:<cflags>"-O3"
+    <variant>release:<cxxflags>"-std=c++17 -fno-rtti -Wall -Wextra -fno-stack-protector -no-pie -fno-plt"
+    <variant>debug:<cflags>""
+    <variant>debug:<cxxflags>"-std=c++17 -fno-rtti -Wall -Wextra -g"
+    <threading>single
+  : default-build debug
+  : build-dir .build
+  ;
+
+exe testsqu
+  : ../sqliteutils/example.cpp
+    ../sqlite-amalgamation/sqlite3.c
+  : <inlining>on
+    <link>static
+  ;
