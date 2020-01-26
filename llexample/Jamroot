@@ -6,6 +6,7 @@ project testlualite
     <include>../lua
     <include>../lualite
     <define>LUA_32BITS
+    <define>LUA_USE_POSIX
     <define>MAKE_LIB
     <toolset>emscripten:<linkflags>"-s WASM=0 --memory-init-file 0"
     <variant>release:<define>NDEBUG
